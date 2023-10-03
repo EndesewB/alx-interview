@@ -20,7 +20,7 @@ def canUnlockAll(boxes):
 
     n = len(boxes)
     visited = [False] * n
-    stack = [0]  # Start with the first box (box 0)
+    stack = [0]
 
     while stack:
         box = stack.pop()
