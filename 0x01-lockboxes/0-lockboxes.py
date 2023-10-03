@@ -1,6 +1,20 @@
 #!/usr/bin/python3
+"""
+unclock boxes
+"""
+
 
 def canUnlockAll(boxes):
+    """
+    Determines if all the boxes can be opened.
+
+    Args:
+        boxes (list of lists): A list of boxes, where each box is represented as a list of keys.
+
+    Returns:
+        bool: True if all boxes can be opened, False otherwise.
+    """
+
     if not boxes or not boxes[0]:
         return False
 
