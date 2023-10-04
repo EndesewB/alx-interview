@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-Unlock boxes
+unlock boxes
 """
 
 
-def canUnlockall(boxes):
+def canUnlockAll(boxes):
     """
     Determines if all the boxes can be opened.
 
