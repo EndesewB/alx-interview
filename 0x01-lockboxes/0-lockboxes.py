@@ -4,7 +4,7 @@ Unlock boxes
 """
 
 
-def can_unlock_all(boxes):
+def canUnlockall(boxes):
     """
     Determines if all the boxes can be opened.
 
