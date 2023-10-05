@@ -1,32 +1,22 @@
 #!/usr/bin/python3
-"""
-Unlock boxes
-"""
+"""a function  that determines if all the boxes can be opened."""
 
 
 def canUnlockAll(boxes):
-    """
-    Determines if all the boxes can be opened.
-
-    Args:
-        boxes (list of lists): A list of boxes, where each box is represented as a list of keys.
-
-    Returns:
-        bool: True if all boxes can be opened, False otherwise.
+    """a method that determines if all the boxes can be opened.
     """
 
     if not boxes:
         return False
-
     n = len(boxes)
     visited = [False] * n
     stack = [0]
 
     while stack:
-        box = stack.pop()
-        visited[box] = True
+        current_box = stack.pop()
+        visited[current_box] = True
 
-        for key in boxes[box]:
+        for key in boxes[current_box]:
             if key < n and not visited[key]:
                 stack.append(key)
 
