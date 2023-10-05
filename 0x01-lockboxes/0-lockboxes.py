@@ -15,7 +15,7 @@ def canUnlockAll(boxes):
         bool: True if all boxes can be opened, False otherwise.
     """
 
-    if not boxes or not boxes[0]:
+    if not boxes:
         return False
 
     n = len(boxes)
