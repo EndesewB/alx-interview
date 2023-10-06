@@ -7,15 +7,16 @@ def canUnlockAll(boxes):
     """
 
     n = len(boxes)
-    visited = set()
-    queue = deque([0])
+    unlocked = [False] * n
+    unlocked[0] = True
+    keys = [0]
 
-    while queue:
-        current_box = queue.popleft()
-        visited.add(current_box)
+    while keys:
+        current_box = keys.pop()
 
         for key in boxes[current_box]:
-            if key < n and key not in visited:
-                queue.append(key)
+            if 0 <= key < n and not unlocked[key]:
+                unlocked[key] = True
+                keys.append(key)
 
-    return len(visited) == n
+    return all(unlocked)
