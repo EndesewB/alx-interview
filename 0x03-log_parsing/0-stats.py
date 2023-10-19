@@ -52,3 +52,4 @@ def report(fileSize, statusCodes):
 
 
 if __name__ == '__main__':
+    parseLogs()
