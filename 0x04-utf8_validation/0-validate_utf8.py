@@ -1,29 +1,34 @@
 #!/usr/bin/python3
-"""UTF-8 Validation's module"""
+"""Module for validUtf8 method"""
 
 
 def validUTF8(data):
-    """Initialize a variable to keep track of
-    the number of valid leading bytes.
+    """Determines if given data represents valid UTF-8 encoding
+    Args:
+        data: list of integers
+    Returns:
+        True if valid UTF-8 encoding, otherwise False
     """
-    valid_leading_bytes = 0
-    for byte in data:
-        if byte >= 128 and byte <= 191:
-            if valid_leading_bytes <= 0:
-                return False
-            valid_leading_bytes -= 1
-        else:
-            if valid_leading_bytes > 0:
-                return False
-            if byte < 128:
-                valid_leading_bytes = 0
-            elif byte >= 192 and byte <= 223:
-                valid_leading_bytes = 1
-            elif byte >= 224 and byte <= 239:
-                valid_leading_bytes = 2
-            elif byte >= 240 and byte <= 247:
-                valid_leading_bytes = 3
-            else:
-                return False
+    n_bytes = 0
 
-    return valid_leading_bytes == 0
+    mask1 = 1 << 7
+
+    mask2 = 1 << 6
+    for num in data:
+
+        mask = 1 << 7
+        if n_bytes == 0:
+            while mask & num:
+                n_bytes += 1
+                mask = mask >> 1
+
+            if n_bytes == 0:
+                continue
+
+            if n_bytes == 1 or n_bytes > 4:
+                return False
+        else:
+            if not (num & mask1 and not (num & mask2)):
+                return False
+        n_bytes -= 1
+    return n_bytes == 0
