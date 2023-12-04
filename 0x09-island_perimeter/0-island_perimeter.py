@@ -22,7 +22,6 @@ def island_perimeter(grid):
     Args:
         grid (_type_): _description_
     """
-    
     row = len(grid)
     col = len(grid[0])
     assert (1 <= row and col <= 100), "length must be between 1 an 100"
