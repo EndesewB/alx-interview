@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Island Perimeter - ALX Interview"""
 
+
 def check_val(x):
         """_summary_
 
@@ -10,9 +11,10 @@ def check_val(x):
         Returns:
             _type_: _description_
         """
-        if (x==0):
+        if (x == 0):
             return 1
         return 0
+
 
 def island_perimeter(grid):
     """_summary_
@@ -20,9 +22,8 @@ def island_perimeter(grid):
     Args:
         grid (_type_): _description_
     """
-    
-    row = len(grid)
-    col = len(grid[0])
+        row = len(grid)
+        col = len(grid[0])
     assert (1 <= row and col <= 100), "length must be between 1 an 100"
 
     x = 0
